@@ -18,8 +18,12 @@ export class Component2Component implements OnInit {
 
   }
   ngOnInit() {
-    this.store.pipe(select(userSearchSelector))
-      .subscribe(item => console.log("hello world"));
+    this.userState.pipe(take(1))
+      .subscribe(item => console.log("with pipe"));
+
+    this.userState
+      .subscribe(item => console.log("without pipe"));
+
   }
 
 
